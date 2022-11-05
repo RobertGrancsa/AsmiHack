@@ -71,16 +71,21 @@ public class RegisterActivity extends Activity {
         } else {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
                 if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
+                    // Sign up success, update UI with the signed-in user's information
                     Log.d(TAG, "createUserWithEmail:success");
                     FirebaseUser user = mAuth.getCurrentUser();
                     updateUI(user);
                 } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                    Toast.makeText(RegisterActivity.this, "Account failed to register.",
-                            Toast.LENGTH_SHORT).show();
-                    updateUI(null);
+                    if (task.getException().toString().equals("com.google.firebase.auth.FirebaseAuthUserCollisionException: The email address is already in use by another account.")) {
+                        Toast.makeText(RegisterActivity.this, "E-mail address already in use.",
+                                Toast.LENGTH_SHORT).show();
+                    } else {
+                        // If sign up fails, display a message to the user.
+                        Log.w(TAG, "createUserWithEmail:failure", task.getException());
+                        Toast.makeText(RegisterActivity.this, "Account failed to register.",
+                                Toast.LENGTH_SHORT).show();
+                        updateUI(null);
+                    }
                 }
             });
         }
