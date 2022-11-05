@@ -60,7 +60,7 @@ public class StoreRecyclerView {
                 @Override
                 public void onClick(View view) {
                     // TODO insert class name here
-                    Intent intent = new Intent(mContext, );
+                    Intent intent = new Intent(mContext, ModuleActivity.class);
                     intent.putExtra("name", module.getName());
                     intent.putExtra("rating", module.getRating());
                     intent.putExtra("downloads", module.getDownloadNumber());
