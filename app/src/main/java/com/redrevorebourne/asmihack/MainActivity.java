@@ -3,7 +3,9 @@ package com.redrevorebourne.asmihack;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,33 +27,32 @@ public class MainActivity extends Activity {
     private FirebaseAuth mAuth;
     private TextView emailbox;
     private TextView passwordbox;
-    private static int counter = 0;
+    private static boolean counter = false;
 
-    private Button button;
-
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String email = "andreea.dre02@gmail.com";
-        String password = "emilsrevange";
-
         emailbox = findViewById(R.id.emailBox);
         passwordbox = findViewById(R.id.passwordBox);
         Button loginButton = findViewById(R.id.login);
 
-
         loginButton.setOnClickListener(view -> {
-            Log.d(TAG, "onClick: " + emailbox.getText() + passwordbox.getText());
             signIn(emailbox.getText().toString(), passwordbox.getText().toString());
         });
 
-
-
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
-        createAccount(email, password);
+
+        TextView moveToRegister = findViewById(R.id.moveToRegister);
+
+        moveToRegister.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, RegisterActivity.class);
+
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -63,40 +64,14 @@ public class MainActivity extends Activity {
             reload();
         }
 
-        counter++;
+        counter = true;
     }
 
     private void reload() { }
 
-    private void createAccount(String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {
-            if (task.isSuccessful()) {
-                // Sign in success, update UI with the signed-in user's information
-                Log.d(TAG, "createUserWithEmail:success");
-                FirebaseUser user = mAuth.getCurrentUser();
-                updateUI(user);
-            } else {
-                // If sign in fails, display a message to the user.
-                Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                Toast.makeText(MainActivity.this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show();
-                updateUI(null);
-            }
-        });
-    }
-
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
-            Intent intent = new Intent(MainActivity.this, StartScreenActivity.class);
-
-            startActivity(intent);
-            finish();
-        }
-    }
-
     private void signIn(String email, String password) {
         // [START sign_in_with_email]
-        if ((email.equals("") || password.equals("")) && counter == 1) {
+        if ((email.equals("") || password.equals("")) && counter) {
             Toast.makeText(MainActivity.this, "Authentication failed.",
                     Toast.LENGTH_SHORT).show();
         } else {
@@ -118,4 +93,14 @@ public class MainActivity extends Activity {
         }
         // [END sign_in_with_email]
     }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            Intent intent = new Intent(MainActivity.this, StartScreenActivity.class);
+
+            startActivity(intent);
+            finish();
+        }
+    }
 }
+
