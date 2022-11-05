@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="Layout"
+        android:id="@+id/layout_select"
+        android:icon="@drawable/layout_icon"/>
+    <item android:title="Module Store"
+        android:icon="@drawable/module_icon"/>
+</menu>

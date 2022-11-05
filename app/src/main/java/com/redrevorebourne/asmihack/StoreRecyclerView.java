@@ -1,7 +1,9 @@
 package com.redrevorebourne.asmihack;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -36,7 +38,7 @@ public class StoreRecyclerView {
         private TextView moduleRating;
         private TextView moduleDownloads;
         private TextView moduleAuthor;
-        private RelativeLayout backgroundCompany;
+        private RelativeLayout backgroundModule;
 
 
         public ModuleItemView(@NonNull ViewGroup parent) {
@@ -46,44 +48,27 @@ public class StoreRecyclerView {
             moduleRating = itemView.findViewById(R.id.moduleRatings);
             moduleDownloads = itemView.findViewById(R.id.moduleDownloads);
             moduleAuthor = itemView.findViewById(R.id.moduleAuthor);
+            backgroundModule = itemView.findViewById(R.id.moduleBackground);
         }
         public void bind(Module module){
             moduleName.setText(module.getName());
             moduleRating.setText(module.getRating());
-//            moduleAuthor.setText(module.getAuthor());
+            moduleAuthor.setText(module.getAuthor());
             moduleDownloads.setText(module.getDownloadNumber());
-//            companyName.setText(module.getName());
-//            companyName.setAutoSizeTextTypeWithDefaults(TextView.AUTO_SIZE_TEXT_TYPE_UNIFORM);
-//            companyTicker.setText(module.getFiletype());
-//            MediaPlayer mediaPlayer = new MediaPlayer();
-//            buttonPlay.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    if (mediaPlayer.isPlaying()) {
-//                        mediaPlayer.stop();
-//                        mediaPlayer.release();
-//                        buttonPlay.setIcon(ContextCompat.getDrawable(mContext, R.drawable.ic_round_play_arrow_24));
-//                        return;
-//                    }
-//                    Uri myUri = module.getUrl().getResult();
-//                    mediaPlayer.setAudioAttributes(
-//                            new AudioAttributes.Builder()
-//                                    .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-//                                    .setUsage(AudioAttributes.USAGE_MEDIA)
-//                                    .build()
-//                    );
-//                    try {
-//                        mediaPlayer.setDataSource(mContext, myUri);
-//                        mediaPlayer.prepare(); // might take long! (for buffering, etc)
-//                        mediaPlayer.start();
-//                        Log.d(TAG, "onClick: tryin to play");
-//                        buttonPlay.setIcon(ContextCompat.getDrawable(mContext, R.drawable.ic_round_pause_24));
-//                    } catch (IOException e) {
-//                        e.printStackTrace();
-//                        Log.e(TAG, "onClick: error :(", e);
-//                    }
-//                }
-//            });
+
+            backgroundModule.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    // TODO insert class name here
+                    Intent intent = new Intent(mContext, ModuleActivity.class);
+                    intent.putExtra("name", module.getName());
+                    intent.putExtra("rating", module.getRating());
+                    intent.putExtra("downloads", module.getDownloadNumber());
+                    intent.putExtra("author", module.getAuthor());
+
+                    mContext.startActivity(intent);
+                }
+            });
         }
     }
 

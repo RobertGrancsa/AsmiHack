@@ -17,14 +17,16 @@ import java.util.List;
 
 public class FirebaseDatabaseHelper {
     private FirebaseDatabase mDatabase;
-    private DatabaseReference mReferenceModule;
-//    private DatabaseReference mReferenceCompany;
+    private final DatabaseReference mReferenceModule;
+    private DatabaseReference mReferenceApps;
 //    private DatabaseReference mReferenceTops;
     private List<Module> modules = new ArrayList<>();
+    private List<App> apps = new ArrayList<>();
 
 
     public interface DataStatus{
         void DataIsLoadedModule(List<Module> modules, List<String> keys);
+        void DataIsLoadedApp(List<App> apps, List<String> keys);
 //        void DataIsLoadedTop(List<Module> modules, List<String> keys);
         void DataIsInserted();
         void DataIsUpdated();
@@ -34,7 +36,7 @@ public class FirebaseDatabaseHelper {
     public FirebaseDatabaseHelper() {
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceModule = mDatabase.getReference("ModulesStore");
-//        mReferenceCompany = mDatabase.getReference("Companies");
+        mReferenceApps = mDatabase.getReference("Apps");
 //        mReferenceTops = mDatabase.getReference("Tops");
     }
 
@@ -54,6 +56,32 @@ public class FirebaseDatabaseHelper {
 
                 dataStatus.DataIsLoadedModule(modules, keys);
                 Log.d(TAG, "onDataChange: data is loaded modules");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
+
+    public void readApps(final DataStatus dataStatus) {
+        mReferenceApps.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                apps.clear();
+                List<String> keys = new ArrayList<>();
+
+                for (DataSnapshot keyNode : dataSnapshot.getChildren()){
+                    keys.add(keyNode.getKey());
+                    Log.d(TAG, "onDataChange: " + keyNode.getKey());
+                    App app = keyNode.getValue(App.class);
+                    apps.add(app);
+                }
+
+                dataStatus.DataIsLoadedApp(apps, keys);
+                Log.d(TAG, "onDataChange: data is loaded apps");
             }
 
             @Override
