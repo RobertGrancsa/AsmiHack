@@ -39,13 +39,15 @@ public class MainActivity extends Activity {
 
         emailbox = findViewById(R.id.emailBox);
         passwordbox = findViewById(R.id.passwordBox);
-
         Button loginButton = findViewById(R.id.login);
+
 
         loginButton.setOnClickListener(view -> {
             Log.d(TAG, "onClick: " + emailbox.getText() + passwordbox.getText());
             signIn(emailbox.getText().toString(), passwordbox.getText().toString());
         });
+
+
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
