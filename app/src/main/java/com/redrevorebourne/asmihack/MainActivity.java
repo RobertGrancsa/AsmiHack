@@ -119,14 +119,5 @@ public class MainActivity extends Activity {
         }
         // [END sign_in_with_email]
     }
-
-    private void updateUI(FirebaseUser user) {
-        if (user != null) {
-            Intent intent = new Intent(MainActivity.this, StartScreenActivity.class);
-
-            startActivity(intent);
-            finish();
-        }
-    }
 }
 
