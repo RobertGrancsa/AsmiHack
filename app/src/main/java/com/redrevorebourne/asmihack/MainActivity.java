@@ -35,7 +35,7 @@ public class MainActivity extends Activity {
 
         emailbox = findViewById(R.id.emailBox);
 
-        loginButton = findViewById(R.id.buttonConfirm);
+        loginButton = findViewById(R.id.login);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,6 +43,8 @@ public class MainActivity extends Activity {
 
             }
         });
+
+
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
