@@ -159,15 +159,15 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <TextView
+        android:id="@+id/moveToLogin"
         android:layout_width="match_parent"
-        android:id="@+id/alreadyAccount"
         android:layout_height="wrap_content"
-        android:textSize="15dp"
         android:layout_gravity="bottom"
+        android:layout_marginTop="10dp"
         android:gravity="center"
 
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="35dp"
-        android:hint="Do you already have an account?"></TextView>
+        android:hint="Do you already have an account?"
+        android:textSize="15dp" />
 </LinearLayout>

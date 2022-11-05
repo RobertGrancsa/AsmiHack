@@ -114,13 +114,14 @@
         </LinearLayout>
 
     </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:id="@+id/forgotPassword"
+        android:id="@+id/moveToRegister"
         android:layout_height="wrap_content"
         android:textSize="15dp"
         android:layout_gravity="bottom"
         android:gravity="center"
         android:layout_marginTop="10dp"
-        android:hint="New to ...? Register"></TextView>
+        android:hint="New to ...? Register" />
 </LinearLayout>
