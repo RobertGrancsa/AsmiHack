@@ -19,10 +19,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends Activity {
-
     private FirebaseAuth mAuth;
     private TextView emailbox;
     private Button loginButton;
+
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
