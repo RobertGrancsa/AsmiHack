@@ -28,6 +28,7 @@ public class MainActivity extends Activity {
     private static int counter = 0;
 
     private Button button;
+    private Button button2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class MainActivity extends Activity {
     }
 
     private void reload() { }
+
 
     private void createAccount(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, task -> {

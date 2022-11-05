@@ -7,17 +7,19 @@ public class Module {
     private String photoUrl;
     private String description;
     private String downloadNumber;
+    private String author;
 
     public Module() {
     }
 
-    public Module(String name, String rating, String ratingNumber, String photoUrl, String description, String downloadNumber) {
+    public Module(String name, String rating, String ratingNumber, String photoUrl, String description, String downloadNumber, String author) {
         this.name = name;
         this.rating = rating;
         this.ratingNumber = ratingNumber;
         this.photoUrl = photoUrl;
         this.description = description;
         this.downloadNumber = downloadNumber;
+        this.author = author;
     }
 
     public String getName() {
@@ -66,5 +68,13 @@ public class Module {
 
     public void setDownloadNumber(String downloadNumber) {
         this.downloadNumber = downloadNumber;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

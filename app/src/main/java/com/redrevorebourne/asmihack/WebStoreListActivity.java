@@ -16,12 +16,21 @@ public class WebStoreListActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_web_store_list);
 
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
         recyclerViewModules = findViewById(R.id.recyclerViewStore);
 
         new FirebaseDatabaseHelper().readModules(new FirebaseDatabaseHelper.DataStatus() {
             @Override
             public void DataIsLoadedModule(List<Module> modules, List<String> keys) {
                 new StoreRecyclerView().setConfig(recyclerViewModules, WebStoreListActivity.this, modules);
+            }
+
+            @Override
+            public void DataIsLoadedApp(List<App> apps, List<String> keys) {
+
             }
 
             @Override
