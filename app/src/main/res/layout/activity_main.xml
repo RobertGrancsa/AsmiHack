@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:contentDescription="13"
             android:layout_gravity="top"
-            android:src="@drawable/image1" />
+            android:src="@drawable/login" />
     </LinearLayout>
 
     <LinearLayout
@@ -138,5 +138,5 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:layout_marginTop="10dp"
-        android:hint="New to ...? Register" />
+        android:hint="New to ModuleIT? Register" />
 </LinearLayout>
