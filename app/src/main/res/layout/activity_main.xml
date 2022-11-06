@@ -126,5 +126,5 @@
         android:layout_gravity="bottom"
         android:gravity="center"
         android:layout_marginTop="10dp"
-        android:hint="New to ...? Register" />
+        android:hint="New to ModuleIT? Register" />
 </LinearLayout>
