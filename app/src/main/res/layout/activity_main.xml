@@ -50,14 +50,15 @@
             android:layout_weight="10"
             android:src="@drawable/email_icon" />
 
-         <EditText
+        <EditText
             android:id="@+id/emailBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             android:gravity="left"
             android:layout_weight="1"
-             android:alpha="1"
-            android:hint="Email"/>
+            android:alpha="1"
+            android:gravity="left"
+            android:hint="Email"
+            android:singleLine="true" />
     </LinearLayout>
 
         <LinearLayout
@@ -78,10 +79,12 @@
                 android:id="@+id/passwordBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Password"
                 android:layout_weight="1"
                 android:gravity="left"
-                android:inputType="textPassword"/>
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:password="true"
+                android:singleLine="true" />
 
 
 

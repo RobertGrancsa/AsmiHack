@@ -65,6 +65,8 @@ public class StoreRecyclerView {
                     intent.putExtra("rating", module.getRating());
                     intent.putExtra("downloads", module.getDownloadNumber());
                     intent.putExtra("author", module.getAuthor());
+                    intent.putExtra("description", module.getDescription());
+                    intent.putExtra("url", module.getPhotoUrl());
 
                     mContext.startActivity(intent);
                 }

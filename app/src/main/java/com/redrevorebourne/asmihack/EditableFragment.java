@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.button.MaterialButton;
+
 import java.util.List;
 
 public class EditableFragment extends Fragment {
@@ -29,5 +31,21 @@ public class EditableFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // Setup any handles to view objects here
         // EditText etFoo = (EditText) view.findViewById(R.id.etFoo);
+
+        switch (layoutIds) {
+            case R.layout.editable_fragment:
+                MaterialButton button = view.findViewById(R.id.addNewModule);
+                button.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        
+                    }
+                });
+                break;
+            case R.layout.add_new_fragment:
+                break;
+            case R.layout.other_fragment:
+                break;
+        }
     }
 }

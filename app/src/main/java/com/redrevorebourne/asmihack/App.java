@@ -2,11 +2,14 @@ package com.redrevorebourne.asmihack;
 
 import org.json.JSONArray;
 
+import java.util.List;
+
 public class App {
     private String name;
     private String description;
     private String photoURL;
     private String numberOfPages;
+    private List<Integer> idNumbers;
 
     public App() {
     }
