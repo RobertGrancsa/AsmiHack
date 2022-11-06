@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "266045173942",
+    "firebase_url": "https://redrevorebourne-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "redrevorebourne",
+    "storage_bucket": "redrevorebourne.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266045173942:android:67c9136531a17311943617",
+        "android_client_info": {
+          "package_name": "com.redrevorebourne.asmihack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266045173942-0igc5mimbqbl4qo9jl4immkafvs25okn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDx6SxDKBzqaVRTxPfuclS8zJ2jeb4rzQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266045173942-0igc5mimbqbl4qo9jl4immkafvs25okn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
