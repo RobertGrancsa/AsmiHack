@@ -56,8 +56,6 @@ public class EmployeesRecyclerView {
             team.setText(employee.getTeam());
             salary.setText(employee.getSalary());
 //
-//          Picasso.get().load(employee.getPhotoURL()).into(appImage);
-//
 //            Log.d(TAG, "bind: " + app.getName());
 //
 //            appBackground.setOnClickListener(view -> {

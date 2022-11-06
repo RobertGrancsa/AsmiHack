@@ -2,27 +2,23 @@ package com.redrevorebourne.asmihack;
 
 import static android.content.ContentValues.TAG;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Delayed;
 
 public class EditableActivity extends AppCompatActivity {
     private ViewPager2 viewPager;
@@ -37,17 +33,17 @@ public class EditableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_app);
 
+        contentLayoutId = getIntent().getIntegerArrayListExtra("ids");
         getSupportActionBar().setTitle(getIntent().getStringExtra("name"));
         String items = getIntent().getStringExtra("items");
         Log.d(TAG, "onCreate: " + items);
         pages = Integer.parseInt(items);
 
-        getIntent().getIntArrayExtra("ids");
 
         contentLayoutId = new ArrayList<>();
+        contentLayoutId.add(R.layout.employees_fragment);
         contentLayoutId.add(R.layout.add_new_fragment);
-        contentLayoutId.add(R.layout.other_fragment);
-        contentLayoutId.add(R.layout.editable_fragment);
+        contentLayoutId.add(R.layout.graph_fragment);
         contentLayoutId.add(R.layout.editable_fragment);
         contentLayoutId.add(R.layout.editable_fragment);
 

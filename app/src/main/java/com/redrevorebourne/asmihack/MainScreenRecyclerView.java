@@ -76,6 +76,7 @@ public class MainScreenRecyclerView {
                 Intent intent = new Intent(mContext, EditableActivity.class);
                 intent.putExtra("name", app.getName());
                 intent.putExtra("items", app.getNumberOfPages());
+                intent.putExtra("ids", app.getIdNumbers().toArray());
 
                 mContext.startActivity(intent);
             });

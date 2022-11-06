@@ -14,11 +14,12 @@ public class App {
     public App() {
     }
 
-    public App(String name, String description, String photoURL, String numberOfPages) {
+    public App(String name, String description, String photoURL, String numberOfPages, List<Integer> idNumbers) {
         this.name = name;
         this.description = description;
         this.photoURL = photoURL;
         this.numberOfPages = numberOfPages;
+        this.idNumbers = idNumbers;
     }
 
     public String getName() {
@@ -51,5 +52,13 @@ public class App {
 
     public void setNumberOfPages(String numberOfPages) {
         this.numberOfPages = numberOfPages;
+    }
+
+    public List<Integer> getIdNumbers() {
+        return idNumbers;
+    }
+
+    public void setIdNumbers(List<Integer> idNumbers) {
+        this.idNumbers = idNumbers;
     }
 }

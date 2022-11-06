@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
 
     private void updateUI(FirebaseUser user) {
         if (user != null) {
-            Intent intent = new Intent(MainActivity.this, WebStoreListActivity.class);
+            Intent intent = new Intent(MainActivity.this, StartScreenActivity.class);
 
             startActivity(intent);
             finish();

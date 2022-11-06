@@ -18,15 +18,17 @@ import java.util.List;
 public class FirebaseDatabaseHelper {
     private FirebaseDatabase mDatabase;
     private final DatabaseReference mReferenceModule;
-    private DatabaseReference mReferenceApps;
-//    private DatabaseReference mReferenceTops;
+    private final DatabaseReference mReferenceApps;
+    private final DatabaseReference mReferenceEmployees;
     private List<Module> modules = new ArrayList<>();
     private List<App> apps = new ArrayList<>();
+    private List<Employee> employees = new ArrayList<>();
 
 
     public interface DataStatus{
         void DataIsLoadedModule(List<Module> modules, List<String> keys);
         void DataIsLoadedApp(List<App> apps, List<String> keys);
+        void DataIsLoadedEmployee(List<Employee> apps, List<String> keys);
 //        void DataIsLoadedTop(List<Module> modules, List<String> keys);
         void DataIsInserted();
         void DataIsUpdated();
@@ -37,6 +39,8 @@ public class FirebaseDatabaseHelper {
         mDatabase = FirebaseDatabase.getInstance();
         mReferenceModule = mDatabase.getReference("ModulesStore");
         mReferenceApps = mDatabase.getReference("Apps");
+        mReferenceEmployees = mDatabase.getReference("Employees");
+
 //        mReferenceTops = mDatabase.getReference("Tops");
     }
 
@@ -81,6 +85,32 @@ public class FirebaseDatabaseHelper {
                 }
 
                 dataStatus.DataIsLoadedApp(apps, keys);
+                Log.d(TAG, "onDataChange: data is loaded apps");
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        });
+    }
+
+    public void readEmployees(final DataStatus dataStatus) {
+        mReferenceEmployees.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                employees.clear();
+                List<String> keys = new ArrayList<>();
+
+                for (DataSnapshot keyNode : dataSnapshot.getChildren()){
+                    keys.add(keyNode.getKey());
+                    Log.d(TAG, "onDataChange: " + keyNode.getKey());
+                    Employee employee = keyNode.getValue(Employee.class);
+                    employees.add(employee);
+                }
+
+                dataStatus.DataIsLoadedEmployee(employees, keys);
                 Log.d(TAG, "onDataChange: data is loaded apps");
             }
 
