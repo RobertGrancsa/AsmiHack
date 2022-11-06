@@ -10,12 +10,12 @@ public class App {
     private String description;
     private String photoURL;
     private String numberOfPages;
-    private ArrayList<Integer> idNumbers;
+    private List<Integer> idNumbers;
 
     public App() {
     }
 
-    public App(String name, String description, String photoURL, String numberOfPages, ArrayList<Integer> idNumbers) {
+    public App(String name, String description, String photoURL, String numberOfPages, List<Integer> idNumbers) {
         this.name = name;
         this.description = description;
         this.photoURL = photoURL;
@@ -55,11 +55,11 @@ public class App {
         this.numberOfPages = numberOfPages;
     }
 
-    public ArrayList<Integer> getIdNumbers() {
+    public List<Integer> getIdNumbers() {
         return idNumbers;
     }
 
-    public void setIdNumbers(ArrayList<Integer> idNumbers) {
+    public void setIdNumbers(List<Integer> idNumbers) {
         this.idNumbers = idNumbers;
     }
 }

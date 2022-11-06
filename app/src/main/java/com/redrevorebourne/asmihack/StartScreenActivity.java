@@ -52,8 +52,8 @@ public class StartScreenActivity extends Activity {
             public void onClick(View view) {
                 Dialog dialog = new Dialog(StartScreenActivity.this);
 
-                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-                dialog.setCancelable(false);
+//                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(true);
 
                 dialog.setContentView(R.layout.app_dialog);
                 

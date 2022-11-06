@@ -37,28 +37,28 @@ public class WebStoreListActivity extends Activity {
         searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
-                query = query.toLowerCase(Locale.ROOT);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                newText = newText.toLowerCase(Locale.ROOT);
                 List<Module> moduleTemp = new ArrayList<>();
 
                 for (int i = 0; i < moduleList.size(); i++) {
                     String name = moduleList.get(i).getName().toLowerCase(Locale.ROOT);
-                    if (name.contains(query)) {
+                    if (name.contains(newText)) {
                         moduleTemp.add(moduleList.get(i));
                     }
                 }
 
                 if (moduleTemp.isEmpty()) {
                     Snackbar snackbar = Snackbar
-                            .make(recyclerViewModules, "No module named " + query + " found", Snackbar.LENGTH_SHORT);
+                            .make(recyclerViewModules, "No module named " + newText + " found", Snackbar.LENGTH_SHORT);
                     snackbar.show();
                 } else {
                     new StoreRecyclerView().setConfig(recyclerViewModules, WebStoreListActivity.this, moduleTemp);
                 }
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
                 return false;
             }
         });

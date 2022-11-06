@@ -7,11 +7,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -88,6 +90,9 @@ public class EditableFragment extends Fragment {
                 });
                 break;
             case R.layout.graph_fragment:
+                ImageView image = view.findViewById(R.id.graph);
+
+                Picasso.get().load("https://firebasestorage.googleapis.com/v0/b/redrevorebourne.appspot.com/o/prediction.jpg?alt=media&token=872f9c9f-3faf-4410-9c36-ee1f21f6a77f").into(image);
                 break;
         }
     }
