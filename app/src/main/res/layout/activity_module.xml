@@ -11,13 +11,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">
-        <Button
+        <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/buttonButton"
-            android:hint="Modules"
+            android:id="@+id/imageModules"
             android:layout_weight="2">
-        </Button>
+        </ImageView>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -26,12 +25,12 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/moduleName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:background="@color/purple_200"
-                android:hint="Module Name"
-                ></TextView>
+                android:gravity="center"
+                android:hint="Module Name"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -46,19 +45,18 @@
                    <TextView
                        android:layout_width="match_parent"
                        android:background="@color/teal_200"
-                       android:layout_height="30dp"
-                       android:hint="rate"></TextView>
+                       android:id="@+id/rateBox"
+                       android:layout_height="30dp"></TextView>
                     <TextView
                         android:layout_width="match_parent"
                         android:background="@color/purple_700"
                         android:layout_height="wrap_content"
                         android:height="30dp"
-                        android:hint="number"></TextView>
+                        android:id="@+id/numberDownloadsBox"></TextView>
                 </LinearLayout>
-
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="20dp"
                     android:hint="Add to modules"
                     android:background="@color/purple_500"
                     android:layout_weight="1"></TextView>
@@ -72,7 +70,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Description"></TextView>
+                android:id="@+id/moduleDescription"></TextView>
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -92,23 +90,22 @@
         
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"
-            android:background="@color/purple_200"></LinearLayout>
+            android:layout_height="10dp"></LinearLayout>
         
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="@color/teal_200">
+            android:layout_height="100dp">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:hint="Contact creator"></TextView>
+                android:id="@+id/moduleContact"></TextView>
         </LinearLayout>
         
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:background="@color/purple_200">
+            android:background="@color/purple_200"
+            android:orientation="vertical">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -118,6 +115,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="100dp"
+            android:orientation="vertical"
             android:background="@color/black">
 
             <HorizontalScrollView
@@ -131,5 +129,6 @@
             </HorizontalScrollView>
         </LinearLayout>
     </LinearLayout>
+
 
 </androidx.appcompat.widget.LinearLayoutCompat>
