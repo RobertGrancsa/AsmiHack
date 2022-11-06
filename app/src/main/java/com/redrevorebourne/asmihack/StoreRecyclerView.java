@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+import com.squareup.picasso.Picasso;
 
 import org.w3c.dom.Text;
 
@@ -38,6 +40,7 @@ public class StoreRecyclerView {
         private TextView moduleRating;
         private TextView moduleDownloads;
         private TextView moduleAuthor;
+        private ImageView imageModule;
         private RelativeLayout backgroundModule;
 
 
@@ -49,12 +52,15 @@ public class StoreRecyclerView {
             moduleDownloads = itemView.findViewById(R.id.moduleDownloads);
             moduleAuthor = itemView.findViewById(R.id.moduleAuthor);
             backgroundModule = itemView.findViewById(R.id.moduleBackground);
+            imageModule = itemView.findViewById(R.id.imageView);
         }
         public void bind(Module module){
             moduleName.setText(module.getName());
             moduleRating.setText(module.getRating());
             moduleAuthor.setText(module.getAuthor());
             moduleDownloads.setText(module.getDownloadNumber());
+
+            Picasso.get().load(module.getPhotoUrl()).into(imageModule);
 
             backgroundModule.setOnClickListener(new View.OnClickListener() {
                 @Override

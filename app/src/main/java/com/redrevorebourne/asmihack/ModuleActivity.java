@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.squareup.picasso.Picasso;
+
 public class ModuleActivity extends Activity {
     private TextView moduleName;
     private ImageView moduleImage;
@@ -28,22 +30,23 @@ public class ModuleActivity extends Activity {
         moduleName = findViewById(R.id.moduleName);
         moduleName.setText(getIntent().getStringExtra("name"));
 
-        //imageModule = findViewById(R.id.imageModules);
+        moduleImage = findViewById(R.id.imageModules);
+        Picasso.get().load(getIntent().getStringExtra("url")).into(moduleImage);
         //imageModule = set
 
         moduleRate = findViewById(R.id.rateBox);
         moduleRate.setText(getIntent().getStringExtra("rating"));
 
-        moduleNumberDownloads = findViewById(R.id.moduleDownloads);
+        moduleNumberDownloads = findViewById(R.id.numberDownloadsBox);
         moduleNumberDownloads.setText(getIntent().getStringExtra("downloads"));
 
-        moduleDescription = findViewById(R.id.moduleDescription);
+        moduleDescription = findViewById(R.id.moduleDescriptionAct);
         moduleDescription.setText(getIntent().getStringExtra("description"));
 
         moduleContact = findViewById(R.id.moduleContact);
         moduleContact.setText(getIntent().getStringExtra("description"));
 
-        moduleURL = findViewById(R.id.moduleURL);
-        moduleURL.setText(getIntent().getStringExtra("url"));
+//        moduleURL = findViewById(R.id.moduleURL);
+//        moduleURL.setText(getIntent().getStringExtra("url"));
     }
 }
