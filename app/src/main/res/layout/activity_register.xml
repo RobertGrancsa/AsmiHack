@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/gradient"
     android:layout_width="match_parent"
+    app:passwordToggleEnabled="true"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="30dp"
@@ -20,7 +21,7 @@
             android:layout_height="match_parent"
             android:contentDescription="13"
             android:layout_gravity="top"
-            android:src="@drawable/register2"/>
+            android:src="@drawable/register4"/>
     </LinearLayout>
 
     <LinearLayout
