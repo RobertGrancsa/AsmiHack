@@ -65,15 +65,8 @@ public class MainScreenRecyclerView {
             appImage = itemView.findViewById(R.id.appImage);
             appName = itemView.findViewById(R.id.appName);
             appBackground = itemView.findViewById(R.id.backgroundApp);
-
-//            companyTicker = itemView.findViewById(R.id.companyTicker);
-//            backgroundCompany = itemView.findViewById(R.id.backgroundCompany);
-//            buttonPlay = itemView.findViewById(R.id.buttonPlay);
         }
         public void bind(App app) {
-//            DatabaseReference storageRef = firebaseDatabase.getReference();
-//            DatabaseReference getImage = databaseReference.child(app.getPhotoURL());
-
             appName.setText(app.getName());
             Picasso.get().load(app.getPhotoURL()).into(appImage);
 
@@ -91,7 +84,7 @@ public class MainScreenRecyclerView {
 
 
     class AppAdapter extends RecyclerView.Adapter<AppItemView>{
-        private List<App> appList;
+        private final List<App> appList;
 
         public AppAdapter(List<App> appList) {
             this.appList = appList;

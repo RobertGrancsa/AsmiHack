@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16dp"
     android:id="@+id/moduleBackground">
 
     <LinearLayout
@@ -14,7 +15,7 @@
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
-            android:layout_height="64dp"
+            android:layout_height="96dp"
             android:layout_weight="1"
             tools:srcCompat="@tools:sample/avatars"
             android:padding="8dp"/>
@@ -22,23 +23,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:orientation="vertical">
 
             <TextView
+                android:fontFamily="@font/poppins"
+                android:textSize="24sp"
                 android:id="@+id/moduleName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <TextView
+                android:fontFamily="@font/poppintshin"
+                android:textSize="16sp"
                 android:id="@+id/moduleAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
@@ -47,14 +52,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/poppinssemibold"
+                    android:text="TextView"
+                    app:drawableRightCompat="@drawable/download_icon" />
 
                 <TextView
                     android:id="@+id/moduleRatings"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="TextView" />
+                    android:fontFamily="@font/poppinssemibold"
+                    android:textSize="14sp"
+                    android:text="TextView"
+                    app:drawableRightCompat="@drawable/star_icon" />
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>
