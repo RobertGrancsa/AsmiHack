@@ -36,6 +36,11 @@ public class StartScreenActivity extends Activity {
             }
 
             @Override
+            public void DataIsLoadedEmployee(List<Employee> apps, List<String> keys) {
+
+            }
+
+            @Override
             public void DataIsInserted() {
 
             }

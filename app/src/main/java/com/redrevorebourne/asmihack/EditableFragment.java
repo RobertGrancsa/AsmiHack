@@ -9,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.button.MaterialButton;
+
+import java.util.List;
 
 public class EditableFragment extends Fragment {
     private int layoutIds;
@@ -49,7 +52,42 @@ public class EditableFragment extends Fragment {
                     }
                 });
                 break;
-            case R.layout.other_fragment:
+            case R.layout.employees_fragment:
+                RecyclerView recyclerView = view.findViewById(R.id.employeesRecyclerView);
+
+                new FirebaseDatabaseHelper().readEmployees(new FirebaseDatabaseHelper.DataStatus() {
+                    @Override
+                    public void DataIsLoadedModule(List<Module> modules, List<String> keys) {
+
+                    }
+
+                    @Override
+                    public void DataIsLoadedApp(List<App> apps, List<String> keys) {
+
+                    }
+
+                    @Override
+                    public void DataIsLoadedEmployee(List<Employee> apps, List<String> keys) {
+                        new EmployeesRecyclerView().setConfig(recyclerView, getActivity(), apps);
+                    }
+
+                    @Override
+                    public void DataIsInserted() {
+
+                    }
+
+                    @Override
+                    public void DataIsUpdated() {
+
+                    }
+
+                    @Override
+                    public void DataIsDeleted() {
+
+                    }
+                });
+                break;
+            case R.layout.graph_fragment:
                 break;
         }
     }
