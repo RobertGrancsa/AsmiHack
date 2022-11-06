@@ -33,19 +33,23 @@ public class EditableActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_app);
 
-        contentLayoutId = getIntent().getIntegerArrayListExtra("ids");
+//        contentLayoutId = getIntent().getIntegerArrayListExtra("ids");
         getSupportActionBar().setTitle(getIntent().getStringExtra("name"));
         String items = getIntent().getStringExtra("items");
         Log.d(TAG, "onCreate: " + items);
         pages = Integer.parseInt(items);
 
+        contentLayoutId = getIntent().getIntegerArrayListExtra("ids");
 
-        contentLayoutId = new ArrayList<>();
-        contentLayoutId.add(R.layout.employees_fragment);
-        contentLayoutId.add(R.layout.add_new_fragment);
-        contentLayoutId.add(R.layout.graph_fragment);
-        contentLayoutId.add(R.layout.editable_fragment);
-        contentLayoutId.add(R.layout.editable_fragment);
+//        Log.d(TAG, "onCreate: " + name);
+
+
+//        contentLayoutId = new ArrayList<>();
+//        contentLayoutId.add(R.layout.employees_fragment);
+//        contentLayoutId.add(R.layout.add_new_fragment);
+//        contentLayoutId.add(R.layout.graph_fragment);
+//        contentLayoutId.add(R.layout.editable_fragment);
+//        contentLayoutId.add(R.layout.editable_fragment);
 
 
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
@@ -60,6 +64,9 @@ public class EditableActivity extends AppCompatActivity {
         viewPager.setAdapter(pagerAdapter);
 
         viewPager.setPageTransformer(new ZoomOutPageTransformer());
+        viewPager.beginFakeDrag();
+        viewPager.fakeDragBy(1000);
+        viewPager.endFakeDrag();
     }
 
     class ScreenSlidePagerAdapter extends FragmentStateAdapter {
