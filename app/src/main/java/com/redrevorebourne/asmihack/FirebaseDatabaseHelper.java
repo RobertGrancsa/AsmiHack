@@ -6,6 +6,7 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -122,17 +123,17 @@ public class FirebaseDatabaseHelper {
         });
     }
 
-    /*
-    public void addCompany(CompanyFront company, final DataStatus dataStatus){
-        String key = mReferenceCompanyFront.push().getKey();
-        mReferenceCompanyFront.child(key).setValue(company).addOnSuccessListener(new OnSuccessListener<Void>() {
+
+    public void addApps(App app, final DataStatus dataStatus) {
+        String key = mReferenceApps.push().getKey();
+        mReferenceApps.child(key).setValue(app).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
             public void onSuccess(Void unused) {
                 dataStatus.DataIsInserted();
             }
         });
     }
-
+    /*
     public void updateCompany(String key, CompanyFront company, final DataStatus dataStatus){
         mReferenceCompanyFront.child(key).setValue(company).addOnSuccessListener(new OnSuccessListener<Void>() {
             @Override
