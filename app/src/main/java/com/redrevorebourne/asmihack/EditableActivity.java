@@ -32,7 +32,6 @@ public class EditableActivity extends AppCompatActivity {
     private FragmentStateAdapter pagerAdapter;
     private List<Integer> contentLayoutId;
 
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,8 +45,8 @@ public class EditableActivity extends AppCompatActivity {
         getIntent().getIntArrayExtra("ids");
 
         contentLayoutId = new ArrayList<>();
+        contentLayoutId.add(R.layout.add_new_fragment);
         contentLayoutId.add(R.layout.other_fragment);
-        contentLayoutId.add(R.layout.editable_fragment);
         contentLayoutId.add(R.layout.editable_fragment);
         contentLayoutId.add(R.layout.editable_fragment);
         contentLayoutId.add(R.layout.editable_fragment);
@@ -67,20 +66,28 @@ public class EditableActivity extends AppCompatActivity {
         viewPager.setPageTransformer(new ZoomOutPageTransformer());
     }
 
-    private class ScreenSlidePagerAdapter extends FragmentStateAdapter {
+    class ScreenSlidePagerAdapter extends FragmentStateAdapter {
         public ScreenSlidePagerAdapter(FragmentActivity fa) {
             super(fa);
         }
 
         @Override
         public Fragment createFragment(int position) {
-            return new EditableFragment(contentLayoutId.get(position));
+            return new EditableFragment(contentLayoutId.get(position), this);
         }
 
         @Override
         public int getItemCount() {
             return pages;
         }
+
+        public List<Integer> getContentLayoutId() {
+            return contentLayoutId;
+        }
+
+//        public void setContentLayoutId(List<Integer> contentLayoutId) {
+//            this.contentLayoutId = contentLayoutId;
+//        }
     }
 
 }

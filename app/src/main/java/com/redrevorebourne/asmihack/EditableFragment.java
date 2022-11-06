@@ -1,6 +1,9 @@
 package com.redrevorebourne.asmihack;
 
+import static android.content.ContentValues.TAG;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,12 +12,12 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.button.MaterialButton;
 
-import java.util.List;
-
 public class EditableFragment extends Fragment {
     private int layoutIds;
-    public EditableFragment(int layoutIds) {
+    private EditableActivity.ScreenSlidePagerAdapter ref;
+    public EditableFragment(int layoutIds, EditableActivity.ScreenSlidePagerAdapter ref) {
         this.layoutIds = layoutIds;
+        this.ref = ref;
     }
 
     // The onCreateView method is called when Fragment should create its View object hierarchy,
@@ -34,15 +37,17 @@ public class EditableFragment extends Fragment {
 
         switch (layoutIds) {
             case R.layout.editable_fragment:
+                break;
+            case R.layout.add_new_fragment:
                 MaterialButton button = view.findViewById(R.id.addNewModule);
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        
+                        // TODO make here thing go up
+                        Log.d(TAG, "onClick: Hello");
+//                        ref.getContentLayoutId().size;
                     }
                 });
-                break;
-            case R.layout.add_new_fragment:
                 break;
             case R.layout.other_fragment:
                 break;
