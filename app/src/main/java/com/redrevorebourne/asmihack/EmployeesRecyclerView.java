@@ -48,7 +48,6 @@ public class EmployeesRecyclerView {
             salary = itemView.findViewById(R.id.salary);
         }
         public void bind(Employee employee) {
-
             name.setText(employee.getName());
             title.setText(employee.getPosition());
             team.setText(employee.getTeam());
