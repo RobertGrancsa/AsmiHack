@@ -52,7 +52,7 @@ public class EmployeesRecyclerView {
             name.setText(employee.getName());
             title.setText(employee.getPosition());
             team.setText(employee.getTeam());
-            salary.setText(employee.getSalary());
+            salary.setText(employee.getSalary() + "$");
 //
 //            Log.d(TAG, "bind: " + app.getName());
 //

@@ -20,7 +20,7 @@
             android:layout_height="match_parent"
             android:contentDescription="13"
             android:layout_gravity="top"
-            android:src="@drawable/register" />
+            android:src="@drawable/register2"/>
     </LinearLayout>
 
     <LinearLayout
