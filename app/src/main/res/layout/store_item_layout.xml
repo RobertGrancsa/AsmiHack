@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+
     android:layout_height="wrap_content"
     android:layout_marginBottom="16dp"
     android:id="@+id/moduleBackground">
@@ -53,11 +54,14 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:textSize="14sp"
-                    android:layout_marginEnd="8dp"
                     android:fontFamily="@font/poppinssemibold"
-                    android:text="TextView"
-                    app:drawableRightCompat="@drawable/download_icon" />
 
+                    android:text="TextView" />
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/download_icon"/>
                 <TextView
                     android:id="@+id/moduleRatings"
                     android:layout_width="wrap_content"
@@ -65,8 +69,14 @@
                     android:layout_weight="1"
                     android:fontFamily="@font/poppinssemibold"
                     android:textSize="14sp"
-                    android:text="TextView"
-                    app:drawableRightCompat="@drawable/star_icon" />
+                    android:layout_marginLeft="5dp"
+                    android:text="TextView"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="top"
+                    android:layout_weight="1"
+                    android:src="@drawable/star_icon"/>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

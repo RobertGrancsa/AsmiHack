@@ -34,22 +34,29 @@ public class EmployeesRecyclerView {
     }
 
     class EmployeeItemView extends RecyclerView.ViewHolder{
+        private TextView name;
+        private TextView title;
+        private TextView salary;
+        private TextView team;
 
-        private ImageView appImage;
-        private TextView appName;
-        private LinearLayout appBackground;
 
 
         public EmployeeItemView(@NonNull ViewGroup parent) {
-            super(LayoutInflater.from(mContext).inflate(R.layout.start_image_layout, parent, false));
+            super(LayoutInflater.from(mContext).inflate(R.layout.employee_layout, parent, false));
 
-            appImage = itemView.findViewById(R.id.appImage);
-            appName = itemView.findViewById(R.id.appName);
-            appBackground = itemView.findViewById(R.id.backgroundApp);
+            name = itemView.findViewById(R.id.employeeName);
+            title = itemView.findViewById(R.id.employeeRole);
+            team = itemView.findViewById(R.id.team);
+            salary = itemView.findViewById(R.id.salary);
         }
         public void bind(Employee employee) {
-            appName.setText(employee.getName());
-//            Picasso.get().load(employee.getPhotoURL()).into(appImage);
+
+            name.setText(employee.getName());
+            title.setText(employee.getPosition());
+            team.setText(employee.getTeam());
+            salary.setText(employee.getSalary());
+//
+//          Picasso.get().load(employee.getPhotoURL()).into(appImage);
 //
 //            Log.d(TAG, "bind: " + app.getName());
 //
