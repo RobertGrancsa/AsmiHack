@@ -111,7 +111,7 @@ public class FirebaseDatabaseHelper {
                 }
 
                 dataStatus.DataIsLoadedEmployee(employees, keys);
-                Log.d(TAG, "onDataChange: data is loaded apps");
+                Log.d(TAG, "onDataChange: data is loaded employee");
             }
 
             @Override

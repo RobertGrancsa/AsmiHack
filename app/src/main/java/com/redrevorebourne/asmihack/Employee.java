@@ -1,50 +1,50 @@
 package com.redrevorebourne.asmihack;
 
 public class Employee {
-    private String name;
-    private String position;
-    private String salary;
-    private String team;
+    private String Name;
+    private String Position;
+    private String Salary;
+    private String Team;
 
     public Employee() {
     }
 
-    public Employee(String name, String position, String salary, String team) {
-        this.name = name;
-        this.position = position;
-        this.salary = salary;
-        this.team = team;
+    public Employee(String Name, String Position, String Salary, String Team) {
+        this.Name = Name;
+        this.Position = Position;
+        this.Salary = Salary;
+        this.Team = Team;
     }
 
     public String getName() {
-        return name;
+        return Name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String Name) {
+        this.Name = Name;
     }
 
     public String getPosition() {
-        return position;
+        return Position;
     }
 
-    public void setPosition(String position) {
-        this.position = position;
+    public void setPosition(String Position) {
+        this.Position = Position;
     }
 
     public String getSalary() {
-        return salary;
+        return Salary;
     }
 
-    public void setSalary(String salary) {
-        this.salary = salary;
+    public void setSalary(String Salary) {
+        this.Salary = Salary;
     }
 
     public String getTeam() {
-        return team;
+        return Team;
     }
 
-    public void setTeam(String team) {
-        this.team = team;
+    public void setTeam(String Team) {
+        this.Team = Team;
     }
 }

@@ -39,8 +39,6 @@ public class EmployeesRecyclerView {
         private TextView salary;
         private TextView team;
 
-
-
         public EmployeeItemView(@NonNull ViewGroup parent) {
             super(LayoutInflater.from(mContext).inflate(R.layout.employee_layout, parent, false));
 

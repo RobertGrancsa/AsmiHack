@@ -2,6 +2,7 @@ package com.redrevorebourne.asmihack;
 
 import org.json.JSONArray;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class App {
@@ -9,12 +10,12 @@ public class App {
     private String description;
     private String photoURL;
     private String numberOfPages;
-    private List<Integer> idNumbers;
+    private ArrayList<Integer> idNumbers;
 
     public App() {
     }
 
-    public App(String name, String description, String photoURL, String numberOfPages, List<Integer> idNumbers) {
+    public App(String name, String description, String photoURL, String numberOfPages, ArrayList<Integer> idNumbers) {
         this.name = name;
         this.description = description;
         this.photoURL = photoURL;
@@ -54,11 +55,11 @@ public class App {
         this.numberOfPages = numberOfPages;
     }
 
-    public List<Integer> getIdNumbers() {
+    public ArrayList<Integer> getIdNumbers() {
         return idNumbers;
     }
 
-    public void setIdNumbers(List<Integer> idNumbers) {
+    public void setIdNumbers(ArrayList<Integer> idNumbers) {
         this.idNumbers = idNumbers;
     }
 }
